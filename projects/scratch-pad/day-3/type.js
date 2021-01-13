@@ -14,7 +14,7 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    if(value instanceof Array){
+    if(Array.isArray(value)){
         return true;
     }else if (value === null){
         return false;
@@ -37,22 +37,27 @@ function isArray(value) {
  * null, not an Array, not a Date - all of these will return 'object' if used 
  * with typeof.
  */
+ 
+ 
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    if(Array.isArray(value)){
-        return false;
-    }else if(value === null){
-        return false;
-    }else if(value instanceof Date){
-        return false;
-    }else{
-        if(typeof value === 'object'){
-            return true;
-        }
-    }
-    
-    
-    
+    //check if value is other types of 'objects' first
+    //check if value is array
+  if(Array.isArray(value)){
+      return false;
+      //if value is null
+  }else if(value === null){
+      return false;
+      //if value is date
+  }else if(value instanceof Date){
+      return false;
+      //if value is object - true
+  }else if(typeof value === 'object'){
+      return true;
+      //else return false
+  }else{
+      return false;
+  }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -63,11 +68,20 @@ function isObject(value) {
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //check if value is other types of 'objects'
+    //check if date
+    if(value instanceof Date){
+        return false;
+        //check if null
+    }else if(value === null){
+        return false;
+        //check if array OR object
+    }else if(Array.isArray(value) || typeof value === 'object'){
+        return true;
+        //else return false
+    }else{
+        return false;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -92,9 +106,22 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    //return strings of types that would usually return "object" if asked typeof?
+    if(Array.isArray(value)){
+      return "array";
+      //if value is null
+  }else if(value === null){
+      return "null";
+      //if value is date
+  }else if(value instanceof Date){
+      return "date";
+      //if value is object
+  }else if(typeof value === 'object'){
+      return "obejct";
+      //if not one of those types that would usually return "object" return typeof value - method that returns type of as string
+  }else{
+      return typeof value;
+  }
     
     // YOUR CODE ABOVE HERE //
 }

@@ -38,10 +38,16 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    //i-  
-    
-    
-    
+    //i-  {value}
+    //o - return function
+    return function(value){
+        //if value is less than base - results to boolean
+        if(value < base){
+            return true;
+        }else{
+            return false;
+        }
+    };
     // YOUR CODE ABOVE HERE //
 }
 
@@ -52,10 +58,17 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //i - String
+    //o - functio
+    //e - make letters all cap or lowercase
+    return function(string){
+        //if first char in string (string[0]) is equal to startsWith (a single char) - results to boolean
+        if(string[0].toLowerCase() === startsWith.toLowerCase()){
+            return true;
+        }else{
+            return false;
+        }
+    };
     // YOUR CODE ABOVE HERE //
 }
 
@@ -66,10 +79,17 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //i- string 
+    //o- function
+    //e - make all letters cap or lowercase
+    return function(string){
+        //if last char in string is equal to endsWith (single char) - result to boolean
+        if(string[string.length -1].toLowerCase() === endsWith.toLowerCase()){
+            return true;
+        }else{
+            return false;
+        }
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -82,13 +102,13 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    //inout - strings - array of strings
+    //input - strings - array of strings & function {modify}
+    //loop over strings array
     for(var i = 0; i < strings.length; i++){
+        //pass each string to modify function and store in strings[i] 
         strings[i] = modify(strings[i]);
-    }
-    
+    }//return strings outside of loop
     return strings;     
-    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -103,10 +123,17 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //i -array (of strings) & function (test)
+    //return boolean
+    //loop array 
+    for(var i = 0; i < strings.length; i++){
+        //test each value in array against test, if any string at any index does not pass test return false
+        if(test(strings[i]) === false){
+            return false;
+        }
+    }
+    //return true outside of loop & if statement
+    return true;
     // YOUR CODE ABOVE HERE //
 }
 
