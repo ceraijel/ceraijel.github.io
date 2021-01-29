@@ -212,7 +212,7 @@ function nonFriends(name, array) {
 //       assert.deepEqual(updateObject(data, "a", Infinity), {a:Infinity, b:"two", hokey: false});
 //     })
 function updateObject(object, key, value) {
-    //
+    //object braket[] key adds key, dot notation would search for a prop named key = value assigns value to that prop
         object[key] = value;
     return object;
 }
@@ -220,18 +220,32 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-function removeProperties(object, array) {
-
-}
+//removeProperties() : Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array> 
+ function removeProperties(object, array) {
+    //loop obj to & compare keys to array of string
+    for(let key in object){
+        //if key is in array, remove from object
+        if(array.includes(key)){
+            delete object[key];
+        }
+    }
+    
+ }
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-function dedup(array) {
-
+//dedup() : Should take an array and return an array with all the duplicates removed
+function dedup(array){
+    //store array elements inside variable newArray, use spread operator to copy origina array values
+    //new keyword creates an object of those elements, Set function turns element into an array removing duplicates
+    var newArray = [...new Set(array)];
+    //return new array with no duplicates
+    return newArray;
 }
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

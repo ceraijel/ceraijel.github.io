@@ -54,6 +54,20 @@ console.log("2" === 2); // ==> prints: false
 console.log(5 === 5); // ==> prints: true
 console.log(2 !== 2); // ==> prints: false
 
+//Unary Operator
+//The most common way to use a unary operator is when incrementing or decrementing a loop
+for(let i = 0; i <= 10; i++){ // ==> i++ is adding 1 (one) each time we loop. 
+    console.log(i); // prints each value: 0, 1, 2, 3, ...10
+}
 
- 
- 
+//Can add (count by) 2, 3, etc by i+=2, i+=3, & so on
+for(let i = 0; i <= 10; i+=2){ // ==> i++ is adding 1 (one) each time we loop. 
+    console.log(i); // prints each value starting at zero and adding 2: 0, 2, 4, 6, 8, 10
+}
+
+//Ternary opertors
+//They resolve to a value, so store value inside of a variable and console.log to see if condition passes or fails
+//3 parts: condition ?(question mark) what happens if true: what happens if false
+let age = 25;
+let canDrink = age >= 21 ? true : false;
+console.log(canDrink); // ==> prints: true

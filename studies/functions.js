@@ -3,9 +3,9 @@
  * FUNCTIONS:
  * 
  * 0. Functions are a block of code that we can execute whenever and however many times we want. They are created 
- *          using the keyword, using parameters and passing arguments. Parameters are optional variables that are used
+ *          using the keyword, parameters and passing arguments. Parameters are optional variables that are used
  *          to hold the place of a value that will later be passed into the function. The values passed into the function 
- *          are arguments. Functions are considered block scoped meaning they can see & alter variables outside of the function but
+ *          are arguments. Functions are considered local/function scoped meaning they can see & alter variables outside of the function but
  *          data inside functions cannot be accessed or altered outside of the function scope.
  * 
  * 1. Two (2) phases of using a function
@@ -20,7 +20,11 @@
  * 
  * 3. Function Closures reference and have access to variables in their parent scope.
  * 
+ * 4. Local/Function Scope: variables declared inside a function are considered function scoped, they cannot be accessed in 
+ *    the global scope (the code outside of curly braces)
+ * 
  **/
+ 
  
  //1. Create a named function
  /*declare*/ function /*name*/myFunction (param1, param2){
@@ -52,7 +56,17 @@ function myFunc() {
   return coderName;
 }
 
-//store "parent" function inside variable
+//store "parent" function inside variable because parent function is returning a value
 var theFunc = myFunc();
 //call function using variable it's stored inside. Prints: C'era
 theFunc(); 
+
+//4. Local/Function Scope
+function local(){
+    let scope = "I am local";
+    console.log(scope); // ==> prints: "I am local"
+}// <--- close the scope of this function
+
+//console.log(scope); ==> this console.log cannot "see" the variable because it is inside the functions scope (curly braces)
+
+local();// ==> invoke function to run console.log inside function scope

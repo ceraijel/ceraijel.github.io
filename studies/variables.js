@@ -36,7 +36,6 @@ console.log(myName); // prints => john
 myName = 'bob';
 console.log(myName); // prints => bob
 var myVariable = 1;
-var myVariable = true;
 myVariable = "someString";
 
 //3. Let
@@ -50,18 +49,18 @@ useLet();
 
 //4. Const
 const FATHERS_NAME = "Daniell";
-FATHERS_NAME = "Jerome";
+//FATHERS_NAME = "Jerome"; ==> trying to reassign would still print Daniell
 console.log(FATHERS_NAME); // ==> prints: Daniell
 
 // Hoisting
 function timeOfDay (hour){
     if(hour === 12){
-        console.log(msg); // ==> error! const is not hoisted so console does
+        //console.log(msg); // ==> error! const is not hoisted so console does
                                 //not know what to print until const is declared
         const msg = "Noon";
         console.log(msg); // ==> prints: Noon
     }else{//if not 12
-        console.log(msg2); // ==> error! let is not hoisted to the top of its scope
+       // console.log(msg2); // ==> error! let is not hoisted to the top of its scope
         let msg2 = "Don't know the time";
         console.log(msg2); // ==> prints: Don't know the time
     }

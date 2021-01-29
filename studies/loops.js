@@ -13,9 +13,9 @@
  * 2. WHile Loop - loops until set condition is true, uses keyword:
  *                  a. while
  *                  b. declare variable outside loop
- *                  b. parenthesis, with a condition that will run until false
- *                  c. increment or decrement 
- *                  d. run block of code inside curly braces
+ *                  c. parenthesis, with a condition that will run until false
+ *                  d. increment or decrement 
+ *                  e. run block of code inside curly braces
  *                  
  * 
  * 3. For-In Loop - used to loop objects. It pulls out the objects keys one by one. We are able to access the value
