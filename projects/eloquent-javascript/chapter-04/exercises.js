@@ -1,11 +1,35 @@
 ////////////////////////////////////////////////////////////////////////////////
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+//Write a range function that takes two arguments, start and end, 
+//and returns an array containing all the numbers from start up to (and including) end.
 
-function range() {
 
+function range(start, end) {
+  //array to hold all values
+  let arr = [];
+  //if start and end are equal
+  if(start === end){
+    //return empty array
+    return arr;
+    //else if start is less than end
+  }
+  if(start < end){
+    //loop numbers start to end
+  for(let i = start; i <= end; i++){
+    //push elements [i] into array
+    arr.push(i)
+    }
+    //THIS SECOND LOOP DOESN'T WORK, MAYBE A NESTED LOOP?
+    //loop numbers to integrate each iteration by 2
+    //NEED A CASE FOR IF NUMBERS ARE NEGATIVE?
+  }else{
+    for(let i = start; i >= end; i--){
+      arr.push(i);
+    }
+  }
+  return arr;
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -18,17 +42,33 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array) {
+  //loop array from back to front 
+  var newArr = [];
+  for(let i = array.length - 1; i >= 0; i--){
+    newArr.push(array[i])
+  }
+  return newArr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  //loop until in the middle of array (length divided by 2)
+  for(let i = 0; i < (array.length - 1) / 2; i++){
+    //store value(element) at each index inside a variable
+    let element = array[i];
+    //make first index the last index inside the loop so it does that for each element
+    array[i] = array[array.length - 1 - i];
+    //make last index equal first
+    array[array.length - 1 - i] = element;
+  }
+  //return the array to the function
+  return array;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
