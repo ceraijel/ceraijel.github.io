@@ -5,38 +5,35 @@
 //and returns an array containing all the numbers from start up to (and including) end.
 
 function range(start, end, step) {
+  
   //array to hold all values after looping
   let arr = [];
+  //if start and end are same
+  if(start === end){
+    return [];
+  }
   //if step is undefined, make it 1 to work with original range function (i++)
   if(step === undefined){
     step = 1;
   }
-  //if step is negative make one so that it will count down by 1
-  if(step < 0){
-   step = 1;
-  }
-  //if start and end are equal
-  if(start === end){
-    //return empty array
-    return arr;
-    //else if start is less than end
-  }
   
-  //if start is less than end
-    if(start < end){
+  //if start is less than end, then step needs to be positive
+    if(start < end && step > 0){
     //loop numbers start to end and count up
       for(let i = start; i <= end; i += step){
     //push elements [i] into array
         arr.push(i)
       }
     }
-    //if start is greater than end
-    if(start > end){
-      //loop numbers and count down 
-    for(let i = start; i >= end; i -= step){
+    //if start is greater than end, then step needs to be negative to be able to count down
+    if(start > end && step < 0){
+      //loop numbers and count down (step is negative here so will count down with whatever num passed to step)
+    for(let i = start; i >= end; i += step){
+      //push elements into array
       arr.push(i);
     }
   }
+  //return new array to function
   return arr;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -168,15 +165,16 @@ function nth(list, num) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function deepEqual(x, y) {
-  //compare 2 obj params - if they do, return true
+  //compare 2 values (assumed to be objects) - if same - return true
   if(x === y){
     return true;
   }
-  //if x obj is null (null returns obj) or x is not an object - not the same - return false
+  
+  //if x is null (null returns obj) or x is not a typeof object - not an obj - return false
   if(x === null || typeof x !== "object"){
     return false;
   }
-    //if y obj is null (null returns obj) or y is not an object - not the same - return false
+    //if y is null (null returns obj) or y is not a typeof object - not an obj - return false
   if(y === null || typeof y !== "object"){
     return false;
   }
@@ -185,7 +183,7 @@ function deepEqual(x, y) {
   let xKeys = Object.keys(x);
   let yKeys = Object.keys(y);
   
-  //if the length of the keys array are not equal - they are not the same - false
+  //if the length of the keys arrays are not equal - they are not the same - return false
   if(xKeys.length !== yKeys.length){
     return false;
   }
